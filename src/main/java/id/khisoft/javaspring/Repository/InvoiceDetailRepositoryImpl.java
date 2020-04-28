@@ -16,7 +16,7 @@ public class InvoiceDetailRepositoryImpl implements InvoiceDetailRepository {
     @Override
     public List<Invoice_Details> getInvoiceDetail(int invoiceId) {
         return jdbcTemplate.query(
-                "SELECT * FROM public.invoice_details where Invoice_id"+invoiceId,
+                "SELECT * FROM public.invoice_details where Invoice_id = "+invoiceId,
                 (rs, rowNum)->
                 new Invoice_Details(
                         rs.getLong("detail_id"),
